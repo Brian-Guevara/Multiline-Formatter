@@ -34,7 +34,8 @@
             set { 
                 _Format= value;
                 OnPropertyChanged("Format");
-            
+
+
             }
         }
 
@@ -47,6 +48,7 @@
             set { 
                 _Delimiter = value;
                 OnPropertyChanged("Delimter");
+
 
             }
         }
@@ -63,7 +65,6 @@
             
             }
         }
-
 
         public void formatInput()
         {

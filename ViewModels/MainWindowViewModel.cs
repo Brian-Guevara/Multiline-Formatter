@@ -8,16 +8,17 @@ namespace MultiLineStringFormatter.ViewModels
     {
         public MainWindowViewModel()
         {
-            _Format = new FormatProcedure();
+            _FormatProcess = new FormatProcedure();
         }
 
-        private FormatProcedure _Format;
+        private FormatProcedure _FormatProcess;
 
-        public FormatProcedure Format
+        public FormatProcedure FormatProcess
         {
-            get { return _Format; }
+            get { return _FormatProcess; }
 
         }
+
 
         public ICommand UpdateOutput
         {
@@ -29,7 +30,7 @@ namespace MultiLineStringFormatter.ViewModels
 
         public void formatText()
         {
-            Format.formatInput();
+            FormatProcess.formatInput();
 
         }
 
@@ -43,7 +44,7 @@ namespace MultiLineStringFormatter.ViewModels
 
         public void _AddData()
         {
-            Format.addData();
+            FormatProcess.addData();
 
         }
 
@@ -57,7 +58,7 @@ namespace MultiLineStringFormatter.ViewModels
 
         public void _AddNumbering()
         {
-            Format.addNumbering();
+            FormatProcess.addNumbering();
 
         }
 

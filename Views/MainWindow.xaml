@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultiLineStringFormatter.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Multiple Line Formatter" Height="450" Width="800"
+        Background="DarkGray">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Background" Value="LightGray"  />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Background" Value="SlateGray" />
+                <Setter Property="Foreground" Value="LightGoldenrodYellow" />
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="BorderThickness" Value="5" />
+                <Setter Property="BorderBrush" Value="DarkGray"/>
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
@@ -24,23 +38,34 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox FontSize="12" Width="auto" Grid.Column="0" Text="{Binding Format.Input}" VerticalScrollBarVisibility="Auto"
-                         AcceptsReturn="True"/>
-                
-                <StackPanel Orientation="Vertical" Grid.Column="1">
-                    <Label  Height="30" Grid.Column="1" Content="Formatting:"/>
-                    <TextBox Text="{Binding Format.Format}" Height="30"/>
-                    <DockPanel Width="auto">
-                        <Button Command="{Binding AddData}" Width="90">Add Data</Button>
-                        <Button Command="{Binding AddNumbering}">Add Numbering</Button>
+                <Border Grid.Column="0">
+                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Label Height="30" DockPanel.Dock="Top" Content="Input" />
+                        <TextBox FontSize="12" Width="auto" Grid.Column="0" Text="{Binding FormatProcess.Input}" VerticalScrollBarVisibility="Auto"
+                            AcceptsReturn="True" DockPanel.Dock="Bottom"/>
                     </DockPanel>
-                    <Label  Height="30" Grid.Column="1" Content="Delimiter:"/>
-                    <TextBox Text="{Binding Format.Delimiter}" Height="30"/>
-                    <Label  Height="30" Grid.Column="1"/>
-                    <Button Command="{Binding UpdateOutput}"> Update Output</Button>
+                </Border>
+                <Border Grid.Column="1">
+                    <StackPanel Orientation="Vertical">
 
-                </StackPanel>
-                <TextBox FontSize="12" Width="auto" Grid.Column="2" Text="{Binding Format.Output}" IsReadOnly="True"/>
+                        <Label  Height="30" Grid.Column="1" Content="Formatting:"/>
+                        <TextBox Text="{Binding FormatProcess.Format}" Height="30"/>
+                        <DockPanel Width="auto">
+                            <Button Command="{Binding AddData}" Width="90">Add Data</Button>
+                            <Button Command="{Binding AddNumbering}">Add Numbering</Button>
+                        </DockPanel>
+                        <Label  Height="30" Grid.Column="1" Content="Delimiter:"/>
+                        <TextBox Text="{Binding FormatProcess.Delimiter}" Height="30"/>
+                        <Button Command="{Binding UpdateOutput}">Update Output</Button>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="2">
+                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Label Height="30" DockPanel.Dock="Top" Content="Output"/>
+                        <TextBox FontSize="12" Width="auto" Grid.Column="2" Text="{Binding FormatProcess.Output}" IsReadOnly="True"/>
+                    </DockPanel>
+                </Border>
+
             </Grid>
         </DockPanel>
     </Grid>
