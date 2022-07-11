@@ -7,10 +7,13 @@
     public class FormatProcedure : INotifyPropertyChanged
     {
 
+        private const String DATATAG = "_DATA_";
+        private const String NUMBERTAG= "_#_";
+
         public FormatProcedure()
         {
-            Input = "Example";
-            Format = "'_DATA_'";
+            Input = "Example Text \nTo Test";
+            Format = "'" + DATATAG +  "'";
             Delimiter = ",";
         }
 
@@ -73,8 +76,17 @@
             int count = 1;
             foreach (String item in array)
             {
-                Output += Format.Replace("_DATA_", item).Replace("_#_",count.ToString()) + Delimiter + '\n';
-                count++;
+                var text = item.Trim();
+                if (text == "")
+                {
+
+                }
+                else
+                {
+
+                    Output += Format.Replace(DATATAG, text).Replace(NUMBERTAG, count.ToString()) + Delimiter + '\n';
+                    count++;
+                }
             }
             int delimLength = Delimiter.Length + 1;
             Output = Output.Remove(Output.Length - delimLength);
@@ -84,13 +96,13 @@
         
         public void addData()
         {
-            Format += "_DATA_";
+            Format += DATATAG;
 
         }
 
         public void addNumbering()
         {
-            Format += "_#_";
+            Format += NUMBERTAG;
 
         }
 
