@@ -7,8 +7,8 @@
     public class FormatProcedure : INotifyPropertyChanged
     {
 
-        private const String DATATAG = "_DATA_";
-        private const String NUMBERTAG= "_#_";
+        private const String DATATAG = "[[D]]";
+        private const String NUMBERTAG= "[[N]]";
 
         public FormatProcedure()
         {
@@ -26,6 +26,8 @@
             set { 
                 _Input = value;
                 OnPropertyChanged("Input");
+                OnPropertyChanged("Preview");
+
             }
         }
 
@@ -37,6 +39,8 @@
             set { 
                 _Format= value;
                 OnPropertyChanged("Format");
+                OnPropertyChanged("Preview");
+
 
 
             }
@@ -51,10 +55,24 @@
             set { 
                 _Delimiter = value;
                 OnPropertyChanged("Delimter");
+                OnPropertyChanged("Preview");
 
 
             }
         }
+
+
+        public String Preview
+        {
+            get {
+                String preview= Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+                preview = preview.Trim();
+                return Format.Replace(DATATAG, preview)
+                    .Replace(NUMBERTAG, "1") + Delimiter; 
+            }
+
+        }
+
 
 
         private String _Output;

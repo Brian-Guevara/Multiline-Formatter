@@ -48,15 +48,17 @@
                 <Border Grid.Column="1">
                     <StackPanel Orientation="Vertical">
 
-                        <Label  Height="30" Grid.Column="1" Content="Formatting:"/>
+                        <Label  Height="30" Content="Formatting:"/>
                         <TextBox Text="{Binding FormatProcess.Format}" Height="30"/>
                         <DockPanel Width="auto">
                             <Button Command="{Binding AddData}" Width="90">Add Data</Button>
                             <Button Command="{Binding AddNumbering}">Add Numbering</Button>
                         </DockPanel>
-                        <Label  Height="30" Grid.Column="1" Content="Delimiter:"/>
+                        <Label  Height="30" Content="Delimiter:"/>
                         <TextBox Text="{Binding FormatProcess.Delimiter}" Height="30"/>
                         <Button Command="{Binding UpdateOutput}">Update Output</Button>
+                        <Label  Height="30" Content="Preview:"/>
+                        <Label  Height="30" Content="{Binding FormatProcess.Preview}" Background="LightGray" Foreground="Black"/>
                     </StackPanel>
                 </Border>
                 <Border Grid.Column="2">
