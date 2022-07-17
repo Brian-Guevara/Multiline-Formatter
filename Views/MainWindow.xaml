@@ -41,7 +41,7 @@
                 <Border Grid.Column="0">
                     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Label Height="30" DockPanel.Dock="Top" Content="Input" />
-                        <TextBox FontSize="12" Width="auto" Grid.Column="0" Text="{Binding FormatProcess.Input}" VerticalScrollBarVisibility="Auto"
+                        <TextBox FontSize="12" Width="auto" Grid.Column="0" Text="{Binding FormatProcess.Input, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Auto"
                             AcceptsReturn="True" DockPanel.Dock="Bottom"/>
                     </DockPanel>
                 </Border>
@@ -49,13 +49,13 @@
                     <StackPanel Orientation="Vertical">
 
                         <Label  Height="30" Content="Formatting:"/>
-                        <TextBox Text="{Binding FormatProcess.Format}" Height="30"/>
+                        <TextBox Text="{Binding FormatProcess.Format, UpdateSourceTrigger=PropertyChanged}" Height="30" x:Name="FormatField"/>
                         <DockPanel Width="auto">
-                            <Button Command="{Binding AddData}" Width="90">Add Data</Button>
-                            <Button Command="{Binding AddNumbering}">Add Numbering</Button>
+                            <Button Command="{Binding AddData}" Width="90" FocusManager.FocusedElement="{Binding ElementName =FormatField}">Add Data</Button>
+                            <Button Command="{Binding AddNumbering}" FocusManager.FocusedElement="{Binding ElementName =FormatField}">Add Numbering</Button>
                         </DockPanel>
                         <Label  Height="30" Content="Delimiter:"/>
-                        <TextBox Text="{Binding FormatProcess.Delimiter}" Height="30"/>
+                        <TextBox Text="{Binding FormatProcess.Delimiter, UpdateSourceTrigger=PropertyChanged}" Height="30"/>
                         <Button Command="{Binding UpdateOutput}">Update Output</Button>
                         <Label  Height="30" Content="Preview:"/>
                         <Label  Height="30" Content="{Binding FormatProcess.Preview}" Background="LightGray" Foreground="Black"/>
@@ -64,7 +64,7 @@
                 <Border Grid.Column="2">
                     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Label Height="30" DockPanel.Dock="Top" Content="Output"/>
-                        <TextBox FontSize="12" Width="auto" Grid.Column="2" Text="{Binding FormatProcess.Output}" IsReadOnly="True"/>
+                        <TextBox FontSize="12" Width="auto" Grid.Column="2" Text="{Binding FormatProcess.Output, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                     </DockPanel>
                 </Border>
 

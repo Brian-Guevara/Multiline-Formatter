@@ -65,10 +65,18 @@
         public String Preview
         {
             get {
-                String preview= Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
-                preview = preview.Trim();
-                return Format.Replace(DATATAG, preview)
-                    .Replace(NUMBERTAG, "1") + Delimiter; 
+                try {
+                    String preview = Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+                    preview = preview.Trim();
+                    return Format.Replace(DATATAG, preview)
+                        .Replace(NUMBERTAG, "1") + Delimiter;
+                }
+                catch
+                {
+                    return "";
+
+                }
+                
             }
 
         }
@@ -79,7 +87,7 @@
 
         public String Output
         {
-            get { return _Output; }
+            get {return _Output; }
             set { 
                 _Output = value;
                 OnPropertyChanged("Output");
