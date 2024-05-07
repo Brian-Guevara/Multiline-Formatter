@@ -16,9 +16,7 @@ namespace MultiLineStringFormatter.ViewModels
         public FormatProcedure FormatProcess
         {
             get { return this._FormatProcess; }
-
         }
-
 
         public ICommand UpdateOutput
         {
@@ -31,7 +29,6 @@ namespace MultiLineStringFormatter.ViewModels
         public void formatText()
         {
             this.FormatProcess.formatInput();
-
         }
 
         public ICommand AddData
@@ -45,7 +42,6 @@ namespace MultiLineStringFormatter.ViewModels
         public void _AddData()
         {
             this.FormatProcess.addData();
-
         }
 
         public ICommand AddNumbering
@@ -59,8 +55,6 @@ namespace MultiLineStringFormatter.ViewModels
         public void _AddNumbering()
         {
             this.FormatProcess.addNumbering();
-
         }
-
     }
 }
