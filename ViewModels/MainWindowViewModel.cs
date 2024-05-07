@@ -1,60 +1,20 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿
+
+namespace MultiLineStringFormatter.ViewModels;
+
+using GalaSoft.MvvmLight.Command;
 using MultiLineStringFormatter.Models;
 using System.Windows.Input;
 
-namespace MultiLineStringFormatter.ViewModels
+internal class MainWindowViewModel
 {
-    internal class MainWindowViewModel
-    {
-        public MainWindowViewModel()
-        {
-            this._FormatProcess = new FormatProcedure();
-        }
+    public MainWindowViewModel() => this.FormatProcess = new FormatProcedure();
 
-        private FormatProcedure _FormatProcess;
+    public FormatProcedure FormatProcess { get; }
 
-        public FormatProcedure FormatProcess
-        {
-            get { return this._FormatProcess; }
-        }
+    public ICommand UpdateOutput => new RelayCommand(this.FormatProcess.formatInput);
 
-        public ICommand UpdateOutput
-        {
-            get
-            {
-                return new RelayCommand(this.formatText, () => true);
-            }
-        }
+    public ICommand AddData => new RelayCommand(this.FormatProcess.addData);
 
-        public void formatText()
-        {
-            this.FormatProcess.formatInput();
-        }
-
-        public ICommand AddData
-        {
-            get
-            {
-                return new RelayCommand(this._AddData, () => true);
-            }
-        }
-
-        public void _AddData()
-        {
-            this.FormatProcess.addData();
-        }
-
-        public ICommand AddNumbering
-        {
-            get
-            {
-                return new RelayCommand(this._AddNumbering, () => true);
-            }
-        }
-
-        public void _AddNumbering()
-        {
-            this.FormatProcess.addNumbering();
-        }
-    }
+    public ICommand AddNumbering => new RelayCommand(this.FormatProcess.addNumbering);
 }

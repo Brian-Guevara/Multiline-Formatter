@@ -6,13 +6,13 @@ using System.IO;
 
 public class FormatProcedure : BindableBase
 {
-    private const String DATATAG = "[[D]]";
-    private const String NUMBERTAG= "[[N]]";
+    private const string DATATAG = "[[D]]";
+    private const string NUMBERTAG = "[[N]]";
 
-    private String output;
-    private String input;
-    private String format;
-    private String delimiter;
+    private string output;
+    private string input;
+    private string format;
+    private string delimiter;
 
     public FormatProcedure()
     {
@@ -21,7 +21,7 @@ public class FormatProcedure : BindableBase
         this.Delimiter = ",";
     }
 
-    public String Input
+    public string Input
     {
         get => this.input;
         set
@@ -32,7 +32,7 @@ public class FormatProcedure : BindableBase
         }
     }
 
-    public String Format
+    public string Format
     {
         get => this.format;
         set
@@ -43,7 +43,7 @@ public class FormatProcedure : BindableBase
         }
     }
 
-    public String Delimiter
+    public string Delimiter
     {
         get => this.delimiter;
         set
@@ -55,7 +55,7 @@ public class FormatProcedure : BindableBase
         }
     }
 
-    public String Preview
+    public string Preview
     {
         get
         {
@@ -73,7 +73,7 @@ public class FormatProcedure : BindableBase
         }
     }
 
-    public String Output
+    public string Output
     {
         get => this.output;
         set {
