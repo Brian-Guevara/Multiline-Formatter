@@ -8,14 +8,14 @@ namespace MultiLineStringFormatter.ViewModels
     {
         public MainWindowViewModel()
         {
-            _FormatProcess = new FormatProcedure();
+            this._FormatProcess = new FormatProcedure();
         }
 
         private FormatProcedure _FormatProcess;
 
         public FormatProcedure FormatProcess
         {
-            get { return _FormatProcess; }
+            get { return this._FormatProcess; }
 
         }
 
@@ -24,13 +24,13 @@ namespace MultiLineStringFormatter.ViewModels
         {
             get
             {
-                return new RelayCommand(formatText, () => true);
+                return new RelayCommand(this.formatText, () => true);
             }
         }
 
         public void formatText()
         {
-            FormatProcess.formatInput();
+            this.FormatProcess.formatInput();
 
         }
 
@@ -38,13 +38,13 @@ namespace MultiLineStringFormatter.ViewModels
         {
             get
             {
-                return new RelayCommand(_AddData, () => true);
+                return new RelayCommand(this._AddData, () => true);
             }
         }
 
         public void _AddData()
         {
-            FormatProcess.addData();
+            this.FormatProcess.addData();
 
         }
 
@@ -52,13 +52,13 @@ namespace MultiLineStringFormatter.ViewModels
         {
             get
             {
-                return new RelayCommand(_AddNumbering, () => true);
+                return new RelayCommand(this._AddNumbering, () => true);
             }
         }
 
         public void _AddNumbering()
         {
-            FormatProcess.addNumbering();
+            this.FormatProcess.addNumbering();
 
         }
 

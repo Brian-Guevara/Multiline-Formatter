@@ -16,8 +16,8 @@ namespace MultiLineStringFormatter
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
-            MainWindow.Show();
+            this.MainWindow = new MainWindow();
+            this.MainWindow.Show();
             base.OnStartup(e);
         }
     }

@@ -12,9 +12,9 @@
 
         public FormatProcedure()
         {
-            Input = "Example Text \nTo Test";
-            Format = "'" + DATATAG +  "'";
-            Delimiter = ",";
+            this.Input = "Example Text \nTo Test";
+            this.Format = "'" + DATATAG +  "'";
+            this.Delimiter = ",";
         }
 
 
@@ -22,24 +22,24 @@
 
         public String Input
         {
-            get { return _Input; }
-            set { 
-                _Input = value;
-                OnPropertyChanged("Input");
-                OnPropertyChanged("Preview");
+            get { return this._Input; }
+            set {
+                this._Input = value;
+                this.OnPropertyChanged("Input");
+                this.OnPropertyChanged("Preview");
 
             }
         }
 
         private String _Format;
 
-        public String Format 
+        public String Format
         {
-            get { return _Format; }
-            set { 
-                _Format= value;
-                OnPropertyChanged("Format");
-                OnPropertyChanged("Preview");
+            get { return this._Format; }
+            set {
+                this._Format = value;
+                this.OnPropertyChanged("Format");
+                this.OnPropertyChanged("Preview");
 
 
 
@@ -51,11 +51,11 @@
 
         public String Delimiter
         {
-            get { return _Delimiter; }
-            set { 
-                _Delimiter = value;
-                OnPropertyChanged("Delimter");
-                OnPropertyChanged("Preview");
+            get { return this._Delimiter; }
+            set {
+                this._Delimiter = value;
+                this.OnPropertyChanged("Delimter");
+                this.OnPropertyChanged("Preview");
 
 
             }
@@ -66,17 +66,17 @@
         {
             get {
                 try {
-                    String preview = Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
+                    String preview = this.Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0];
                     preview = preview.Trim();
-                    return Format.Replace(DATATAG, preview)
-                        .Replace(NUMBERTAG, "1") + Delimiter;
+                    return this.Format.Replace(DATATAG, preview)
+                        .Replace(NUMBERTAG, "1") + this.Delimiter;
                 }
                 catch
                 {
                     return "";
 
                 }
-                
+
             }
 
         }
@@ -87,18 +87,18 @@
 
         public String Output
         {
-            get {return _Output; }
-            set { 
-                _Output = value;
-                OnPropertyChanged("Output");
-            
+            get {return this._Output; }
+            set {
+                this._Output = value;
+                this.OnPropertyChanged("Output");
+
             }
         }
 
         public void formatInput()
         {
-            Output = "";
-            String [] array = Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            this.Output = "";
+            String [] array = this.Input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             int count = 1;
             foreach (String item in array)
             {
@@ -110,25 +110,25 @@
                 else
                 {
 
-                    Output += Format.Replace(DATATAG, text).Replace(NUMBERTAG, count.ToString()) + Delimiter + '\n';
+                    this.Output += this.Format.Replace(DATATAG, text).Replace(NUMBERTAG, count.ToString()) + this.Delimiter + '\n';
                     count++;
                 }
             }
-            int delimLength = Delimiter.Length + 1;
-            Output = Output.Remove(Output.Length - delimLength);
-            
+            int delimLength = this.Delimiter.Length + 1;
+            this.Output = this.Output.Remove(this.Output.Length - delimLength);
+
 
         }
-        
+
         public void addData()
         {
-            Format += DATATAG;
+            this.Format += DATATAG;
 
         }
 
         public void addNumbering()
         {
-            Format += NUMBERTAG;
+            this.Format += NUMBERTAG;
 
         }
 
